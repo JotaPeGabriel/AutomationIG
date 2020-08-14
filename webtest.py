@@ -13,7 +13,7 @@ navegador.get(url)
 folha = load_workbook('arrobas.xlsx')
 plan = folha['Planilha1']
 lista = plan['A']
-listat = [45, 85, 90, 120, 135, 150, 203, 374, 407, 500, 600]
+listat = [45, 120, 135, 203, 374, 407, 500, 600]
 print('ANTES DE COMEÇAR ESTEJA LOGADO E NA TELA DO SORTEIO')
 start = input("Quando estiver pronto digite algo: ")
 
