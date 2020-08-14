@@ -4,7 +4,7 @@ from time import sleep, localtime, strftime
 from openpyxl import load_workbook
 from random import choice
 
-""" Projeto de automação - Python + Selenium + OpenPyXL """
+""" Projeto de automação - Python + Selenium + OpenPyXL teste"""
 
 url = 'https://www.instagram.com/p/CCqqjE0HxWb/'
 navegador = Chrome()  # Define o Navegador como variavel
