@@ -6,7 +6,7 @@ from random import choice
 
 """ Projeto de automação - Python + Selenium + OpenPyXL teste"""
 
-url = 'https://www.instagram.com/p/CCqqjE0HxWb/'
+url = 'https://www.instagram.com/p/CD7fSDyn7WA/'
 navegador = Chrome()  # Define o Navegador como variavel
 navegador.get(url)
 
