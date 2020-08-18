@@ -10,10 +10,11 @@ url = 'https://www.instagram.com/p/CD7fSDyn7WA/'
 navegador = Chrome()  # Define o Navegador como variavel
 navegador.get(url)
 
-folha = load_workbook('arrobas.xlsx')
-plan = folha['Planilha1']
+folha = load_workbook('database.xlsx')
+plan = folha['dados']
 lista = plan['A']
-listat = [45, 120, 135, 203, 374, 407, 500, 600]
+plant = folha['tempo']
+listat = plant['A']
 print('ANTES DE COMEÇAR ESTEJA LOGADO E NA TELA DO SORTEIO')
 start = input("Quando estiver pronto digite algo: ")
 
@@ -21,7 +22,7 @@ start = input("Quando estiver pronto digite algo: ")
 def comentar():
     for click in range(1500):
         arroba = choice(lista)
-        tempo = int(choice(listat))
+        tempo = choice(listat)
         balao = navegador.find_element_by_class_name('_15y0l')  # Encontrar e Clicar no Balao,Passando a vareavel arroba
         marcar = balao.find_element_by_class_name('wpO6b')
         marcar.send_keys('a', Keys.ENTER)
@@ -35,8 +36,8 @@ def comentar():
         t = localtime()  # Pegar a hora e data que esta sendo comentado
         agora = strftime("%H:%M:%S", t)
         print(f'{click + 1} - Voce Marcou: {arroba.value} as {agora}')
-        print(f'O proximo vai ser daqui a >> {tempo} Segs OU {tempo / 60:.2f} Minutos <<\n')
-        sleep(tempo)
+        print(f'O proximo vai ser daqui a >> {tempo.value} Segs OU {int(tempo.value)/60:.2f} Minutos <<\n')
+        sleep(tempo.value)
 
 
 comentar()
