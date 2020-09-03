@@ -20,24 +20,31 @@ start = input("Quando estiver pronto digite algo: ")
 
 
 def comentar():
-    for click in range(1500):
+    for contagem in range(5):
         arroba = choice(lista)
         tempo = choice(listat)
-        balao = navegador.find_element_by_class_name('_15y0l')  # Encontrar e Clicar no Balao,Passando a vareavel arroba
+        balao = navegador.find_element_by_class_name('_15y0l')  # Encontrar e Clicar no Balao
         marcar = balao.find_element_by_class_name('wpO6b')
         marcar.send_keys('a', Keys.ENTER)
         campo = navegador.find_element_by_class_name('Ypffh')
         if campo.text != '':
             campo.send_keys(Keys.CONTROL + "a", Keys.DELETE)
-        marcar.send_keys('', Keys.ENTER, str(arroba.value))
+        campo.send_keys('', Keys.ENTER, str(arroba.value))
         sleep(1)
         classe = navegador.find_element_by_class_name('RxpZH')  # Encontrar e Clicar no botão ENVIAR e comentar
         classe.find_element_by_class_name('sqdOP').send_keys(Keys.ENTER)
         t = localtime()  # Pegar a hora e data que esta sendo comentado
         agora = strftime("%H:%M:%S", t)
-        print(f'{click + 1} - Voce Marcou: {arroba.value} as {agora}')
-        print(f'O proximo vai ser daqui a >> {tempo.value} Segs OU {int(tempo.value)/60:.2f} Minutos <<\n')
+        print(f'{contagem + 1} - Voce Marcou: {arroba.value} as {agora}')
+        print(f'O proximo vai ser daqui a >> {tempo.value} Segs OU {int(tempo.value) / 60:.2f} Minutos <<\n')
         sleep(tempo.value)
 
 
-comentar()
+def rodar():
+    comentar()
+    for c in range(15):
+        print('-=' * 30)
+        print(f'Proximo onda em 2m30s')
+        print('=-' * 30)
+        sleep(150)
+        comentar()
