@@ -14,7 +14,9 @@ folha = load_workbook('database.xlsx')
 plan = folha['dados']
 lista = plan['A']
 plant = folha['tempo']
-listat = plant['A']
+lista_t_curto = plant['A']
+plant2 = folha['tempo2']
+lista_t_longo = plant2['A']
 print('ANTES DE COMEÇAR ESTEJA LOGADO E NA TELA DO SORTEIO')
 start = input("Quando estiver pronto digite algo: ")
 
@@ -22,7 +24,7 @@ start = input("Quando estiver pronto digite algo: ")
 def comentar():
     for contagem in range(5):
         arroba = choice(lista)
-        tempo = choice(listat)
+        tempo = choice(lista_t_curto)
         balao = navegador.find_element_by_class_name('_15y0l')  # Encontrar e Clicar no Balao
         marcar = balao.find_element_by_class_name('wpO6b')
         marcar.send_keys('a', Keys.ENTER)
@@ -36,15 +38,20 @@ def comentar():
         t = localtime()  # Pegar a hora e data que esta sendo comentado
         agora = strftime("%H:%M:%S", t)
         print(f'{contagem + 1} - Voce Marcou: {arroba.value} as {agora}')
-        print(f'O proximo vai ser daqui a >> {tempo.value} Segs OU {int(tempo.value) / 60:.2f} Minutos <<\n')
+        print(f'O proximo vai ser daqui a >> {tempo.value} Segs <<\n')
         sleep(tempo.value)
 
 
 def rodar():
     comentar()
     for c in range(15):
+        tempo = choice(lista_t_longo)
         print('-=' * 30)
-        print(f'Proximo onda em 2m30s')
+        print(f'Está foi a onda {c + 1}')
+        print(f'Proximo onda em {int(tempo.value)/60:.2f} Minutos')
         print('=-' * 30)
-        sleep(150)
+        sleep(tempo.value)
         comentar()
+
+
+rodar()
