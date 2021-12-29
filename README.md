@@ -4,4 +4,4 @@
  
  Automação de comentarios no Instagram  com Selenium
 
-Antigo teste de automaçao para aprendizagem da ferramente Selenium
+* Antigo teste de automaçao para aprendizagem da ferramente Selenium
